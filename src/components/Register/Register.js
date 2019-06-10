@@ -20,7 +20,7 @@ export default class Register extends Component {
             <View style={styles.container}>
                 <Text style={styles.header}>Welcome:{props.name}</Text>
                 <Image style={styles.image} source={{ uri: props.photoUrl } } />
-                <Button onPress={()=>this.props.changeGmailMode()} title="Press Me"></Button>
+                <View style={styles.continue}><Button onPress={()=>this.props.changeGmailMode()} title="Continue"></Button></View>
             </View>
         )
     }
@@ -102,5 +102,8 @@ const styles = StyleSheet.create({
         borderColor: "rgba(0,0,0,0.2)",
         borderWidth: 3,
         borderRadius: 150
-    }
+    },
+    continue: {
+        marginTop: 25,
+    },
 })

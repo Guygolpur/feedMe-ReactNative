@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, ImageBackground } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, ImageBackground, ActivityIndicator } from 'react-native'
 import { Icon } from 'react-native-elements'
 import Instruction from '../Instruction/Instruction'
 import { Gmail } from '../Register/Register'
@@ -38,7 +38,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 10,
     fontWeight: 'bold'
-  }
+  },
+  load: {
+    marginTop: 200,
+  },
 })
 
 export default class Favorites extends Component {
@@ -54,6 +57,7 @@ export default class Favorites extends Component {
     this.onDelete = this.onDelete.bind(this)
     this.getData = this.getData.bind(this)
     this.emptyListMessage = this.emptyListMessage.bind(this)
+    this.whileLoading = this.whileLoading.bind(this)
     this.nextID = this.nextID.bind(this)
     this.openInstruction = this.openInstruction.bind(this)
     this.changeOpenInstructionMode = this.changeOpenInstructionMode.bind(this)
@@ -63,6 +67,13 @@ export default class Favorites extends Component {
   }
   emptyListMessage() {
     return <Text style={styles.emptyArrayText}>No Result Were Found</Text>
+  }
+  whileLoading() {
+    return (
+      <View style={styles.load}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );  
   }
   getData() {
     if (!Gmail) {
@@ -155,7 +166,7 @@ export default class Favorites extends Component {
           <FlatList
             data={this.state.favoriteList}
             numColumns={1}
-            ListEmptyComponent={this.emptyListMessage}
+            ListEmptyComponent={this.whileLoading}
             renderItem={({ item }) => {
               return (
                 <View style={styles.imageContainer}>
