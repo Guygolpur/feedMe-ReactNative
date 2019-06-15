@@ -198,8 +198,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     bgp: {
-        width: 360,
-        height: 590,
+        width: '100%',
+        height: '100%',
     },
     Title: {
         fontSize: 35,

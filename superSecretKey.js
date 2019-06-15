@@ -1,3 +1,2 @@
-export const androidClientId =
- '555614369888-d582uqr76id8v452i4dfuic9eno239uo.apps.googleusercontent.com'
- 
+export const androidClientId = '555614369888-d582uqr76id8v452i4dfuic9eno239uo.apps.googleusercontent.com'
+export const iosClientId = "555614369888-jqat3lhpdgpvqs7vf366c4jh6nr6jei8.apps.googleusercontent.com"

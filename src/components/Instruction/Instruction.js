@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
 // import { WebView } from 'react-native-webview'
 import { Icon } from 'react-native-elements'
 import propTypes from 'prop-types'
@@ -16,9 +16,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center'
   },
+  imagePos: {
+    alignItems: 'center'
+  },
   youtubeVideo: {
     height: 300,
-    paddingTop: 30
+    width: 300,
+    paddingTop: 30,
   },
   backArrow: {
     paddingLeft: 30,
@@ -120,8 +124,9 @@ export default class Instruction extends Component {
           <Text style={styles.strArea}>{this.state.instructions.strArea}</Text>
           <Text style={styles.strInstructions}>{this.state.instructions.strInstructions}</Text>
           {this.state.ready && (
-            <View style={styles.youtubeVideo}>
+            <View style={styles.imagePos}>
               {/* <WebView source={{ uri: `${this.state.instructions.strYoutube}` }} /> */}
+              <ImageBackground style={styles.youtubeVideo} source={{ uri: this.state.instructions.strMealThumb }} />
             </View>
           )}
         </ScrollView>

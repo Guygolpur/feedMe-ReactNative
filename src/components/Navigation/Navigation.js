@@ -10,7 +10,7 @@ export default class Navigation extends Component {
   constructor() {
     super()
     this.state = {
-      page: "HomeScreen",
+      page: "SearchScreen",
     }
   }
 

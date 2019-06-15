@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Button, StyleSheet, Text, View } from 'react-native'
 import * as Expo from "expo"
-import { androidClientId } from "../../../superSecretKey"
+import { androidClientId, iosClientId } from "../../../superSecretKey"
 
 export let Gmail = null
 export default class Register extends Component {
@@ -29,6 +29,7 @@ export default class Register extends Component {
         try {
             const result = await Expo.Google.logInAsync({
                 androidClientId: androidClientId,
+                iosClientId: iosClientId,
                 scopes: ["profile", "email"]
             })
             // console.log(result.user.email)

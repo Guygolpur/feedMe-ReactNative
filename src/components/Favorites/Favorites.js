@@ -51,6 +51,7 @@ export default class Favorites extends Component {
       favoriteList: [],
       openInstructionMode: false,
       count: 0,
+      loading: true
     }
     this.recipeToOpenInstruction = {}
     this.add = this.add.bind(this)
@@ -61,33 +62,44 @@ export default class Favorites extends Component {
     this.nextID = this.nextID.bind(this)
     this.openInstruction = this.openInstruction.bind(this)
     this.changeOpenInstructionMode = this.changeOpenInstructionMode.bind(this)
+    this.renderFavorite = this.renderFavorite.bind(this)
   }
   componentDidMount() {
     this.getData()
   }
   emptyListMessage() {
-    return <Text style={styles.emptyArrayText}>No Result Were Found</Text>
+    return (
+      <View>
+        <Text style={styles.emptyArrayText}>No Result Were Found</Text>
+      </View>
+    )
   }
   whileLoading() {
     return (
       <View style={styles.load}>
         <ActivityIndicator size="large" color="#0000ff" />
       </View>
-    );  
+    );
   }
-  getData() {
+  async getData() {
     if (!Gmail) {
       return
     }
     const url = `https://feedme24.herokuapp.com/profileFavorite?gmailAccount=${Gmail}`
-    fetch(`${url}`)
-      .then(res => res.json())
-      .then(data =>
-        data.map(favorite =>
-          this.add(favorite.strMeal, favorite.strArea, favorite.strMealThumb, favorite.strYoutube)
-        )
-      )
-      .catch(err => new Error(err))
+    try{
+    const res = await fetch(`${url}`)
+    const data = await res.json()
+    data.map(favorite =>
+      this.add(favorite.strMeal, favorite.strArea, favorite.strMealThumb, favorite.strYoutube)
+    )
+    this.setState({ loading: false })
+    }
+    catch(err){
+      return new Error(err)
+    }
+
+
+    
   }
   onDelete(nameMealToDelete) {
     if (!Gmail) {
@@ -134,9 +146,12 @@ export default class Favorites extends Component {
   }
   renderFavorite() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.title}>Favorites</Text>
-        <FlatList
+        {this.state.loading && <View style={styles.load}>
+          <ActivityIndicator size="large" color="#0000ff" />
+        </View>}
+        {!this.state.loading && <FlatList
           data={this.state.favoriteList}
           numColumns={1}
           ListEmptyComponent={this.emptyListMessage}
@@ -153,36 +168,13 @@ export default class Favorites extends Component {
           }}
           keyExtractor={item => item.id.toString()}
           onEndThreshold={0}
-        />
+        />}
       </View>
     )
   }
   render() {
     if (!this.state.openInstructionMode)
-      return (
-        <View style={styles.container}>
-          <Text style={styles.title}>Favorites</Text>
-
-          <FlatList
-            data={this.state.favoriteList}
-            numColumns={1}
-            ListEmptyComponent={this.whileLoading}
-            renderItem={({ item }) => {
-              return (
-                <View style={styles.imageContainer}>
-                  <Text style={styles.nameMeal}>{item.name}</Text>
-                  <TouchableOpacity onPress={() => this.openInstruction(item)}>
-                    <ImageBackground style={styles.image} source={{ uri: item.image }} />
-                  </TouchableOpacity>
-                  <Icon onPress={() => this.onDelete(item.name)} name="delete" size={50} />
-                </View>
-              )
-            }}
-            keyExtractor={item => item.id.toString()}
-            onEndThreshold={0}
-          />
-        </View>
-      )
+      return this.renderFavorite()
     return (
       <Instruction
         recipe={this.recipeToOpenInstruction}
