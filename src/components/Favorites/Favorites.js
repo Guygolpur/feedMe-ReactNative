@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, ImageBackground, ActivityIndicator } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  ImageBackground,
+  ActivityIndicator
+} from 'react-native'
 import { Icon } from 'react-native-elements'
 import Instruction from '../Instruction/Instruction'
 import { Gmail } from '../Register/Register'
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   title: {
     fontSize: 35,
@@ -40,8 +47,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   load: {
-    marginTop: 200,
-  },
+    marginTop: 200
+  }
 })
 
 export default class Favorites extends Component {
@@ -79,27 +86,23 @@ export default class Favorites extends Component {
       <View style={styles.load}>
         <ActivityIndicator size="large" color="#0000ff" />
       </View>
-    );
+    )
   }
   async getData() {
     if (!Gmail) {
       return
     }
     const url = `https://feedme24.herokuapp.com/profileFavorite?gmailAccount=${Gmail}`
-    try{
-    const res = await fetch(`${url}`)
-    const data = await res.json()
-    data.map(favorite =>
-      this.add(favorite.strMeal, favorite.strArea, favorite.strMealThumb, favorite.strYoutube)
-    )
-    this.setState({ loading: false })
-    }
-    catch(err){
+    try {
+      const res = await fetch(`${url}`)
+      const data = await res.json()
+      data.map(favorite =>
+        this.add(favorite.strMeal, favorite.strArea, favorite.strMealThumb, favorite.strYoutube)
+      )
+      this.setState({ loading: false })
+    } catch (err) {
       return new Error(err)
     }
-
-
-    
   }
   onDelete(nameMealToDelete) {
     if (!Gmail) {
@@ -148,33 +151,36 @@ export default class Favorites extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Favorites</Text>
-        {this.state.loading && <View style={styles.load}>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </View>}
-        {!this.state.loading && <FlatList
-          data={this.state.favoriteList}
-          numColumns={1}
-          ListEmptyComponent={this.emptyListMessage}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.imageContainer}>
-                <Text style={styles.nameMeal}>{item.name}</Text>
-                <TouchableOpacity onPress={() => this.openInstruction(item)}>
-                  <ImageBackground style={styles.image} source={{ uri: item.image }} />
-                </TouchableOpacity>
-                <Icon onPress={() => this.onDelete(item.name)} name="delete" size={50} />
-              </View>
-            )
-          }}
-          keyExtractor={item => item.id.toString()}
-          onEndThreshold={0}
-        />}
+        {this.state.loading && (
+          <View style={styles.load}>
+            <ActivityIndicator size="large" color="#0000ff" />
+          </View>
+        )}
+        {!this.state.loading && (
+          <FlatList
+            data={this.state.favoriteList}
+            numColumns={1}
+            ListEmptyComponent={this.emptyListMessage}
+            renderItem={({ item }) => {
+              return (
+                <View style={styles.imageContainer}>
+                  <Text style={styles.nameMeal}>{item.name}</Text>
+                  <TouchableOpacity onPress={() => this.openInstruction(item)}>
+                    <ImageBackground style={styles.image} source={{ uri: item.image }} />
+                  </TouchableOpacity>
+                  <Icon onPress={() => this.onDelete(item.name)} name="delete" size={50} />
+                </View>
+              )
+            }}
+            keyExtractor={item => item.id.toString()}
+            onEndThreshold={0}
+          />
+        )}
       </View>
     )
   }
   render() {
-    if (!this.state.openInstructionMode)
-      return this.renderFavorite()
+    if (!this.state.openInstructionMode) return this.renderFavorite()
     return (
       <Instruction
         recipe={this.recipeToOpenInstruction}

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   youtubeVideo: {
     height: 300,
     width: 300,
-    paddingTop: 30,
+    paddingTop: 30
   },
   backArrow: {
     paddingLeft: 30,
@@ -126,7 +126,10 @@ export default class Instruction extends Component {
           {this.state.ready && (
             <View style={styles.imagePos}>
               {/* <WebView source={{ uri: `${this.state.instructions.strYoutube}` }} /> */}
-              <ImageBackground style={styles.youtubeVideo} source={{ uri: this.state.instructions.strMealThumb }} />
+              <ImageBackground
+                style={styles.youtubeVideo}
+                source={{ uri: this.state.instructions.strMealThumb }}
+              />
             </View>
           )}
         </ScrollView>
