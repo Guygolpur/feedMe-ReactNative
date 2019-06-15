@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
   profileProhibition: {
     fontWeight: 'bold',
     color: 'red'
-  },
-  profileForm: {
-    top: 237
   }
 })
 
@@ -63,7 +60,7 @@ export default class Profile extends Component {
     this.getData = this.getData.bind(this)
     this.add = this.add.bind(this)
     this.nextID = this.nextID.bind(this)
-    this.save = this.save.bind(this)
+    this.handleSave = this.handleSave.bind(this)
     this.edit = this.edit.bind(this)
     this.handleImageUrl = this.handleImageUrl.bind(this)
     this.handleProhabition = this.handleProhabition.bind(this)
@@ -81,9 +78,6 @@ export default class Profile extends Component {
   }
 
   getData() {
-    if (!Gmail) {
-      return
-    }
     this.setState({ profile: [] })
     const url = `https://feedme24.herokuapp.com/getProfileByGmailAccount?gmailAccount=${Gmail}`
     fetch(`${url}`)
@@ -93,6 +87,7 @@ export default class Profile extends Component {
           this.add(profile.gmailAccount, profile.prohibitions, profile.imageUrl, profile.userName)
         )
       )
+      .catch(err => new Error(err))
   }
 
   add(gmailAccount = null, prohibitions = null, imageUrl = null, userName = null) {
@@ -123,9 +118,6 @@ export default class Profile extends Component {
   }
 
   setDataInDB() {
-    if (!Gmail) {
-      return
-    }
     const userName = this.userName ? this.userName : this.state.profile.userName
     const prohibitions = this.prohibitions ? this.prohibitions : this.state.profile.prohibitions
     const imageUrl = this.imageUrl ? this.imageUrl : this.state.profile.imageUrl
@@ -136,7 +128,9 @@ export default class Profile extends Component {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
-    }).then(res => res.json())
+    })
+      .then(res => res.json())
+      .catch(err => new Error(err))
     this.setState({
       profile: {
         gmailAccount: this.state.profile.gmailAccount,
@@ -147,7 +141,7 @@ export default class Profile extends Component {
     })
   }
 
-  save() {
+  handleSave() {
     this.setDataInDB()
     this.setState({ editing: false })
   }
@@ -175,7 +169,7 @@ export default class Profile extends Component {
               Prohabitions: {this.state.profile.prohibitions}
             </Text>
           </View>
-          <View style={styles.profileForm}>
+          <View>
             <Text>User name</Text>
             <TextInput
               placeholder="Type here to change user name!"

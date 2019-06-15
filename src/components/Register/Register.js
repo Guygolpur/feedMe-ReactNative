@@ -7,7 +7,6 @@ import propTypes from 'prop-types'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // marginTop: 74,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
