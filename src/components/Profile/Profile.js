@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Image, StyleSheet, Text, View, TextInput, ImageBackground, Button } from 'react-native'
 import { Icon } from 'react-native-elements'
+
 import { Gmail } from '../Register/Register'
 
 const styles = StyleSheet.create({
@@ -101,18 +102,6 @@ export default class Profile extends Component {
       }
     }))
   }
-
-  eachProfile(profile, i) {
-    return (
-      <div key={`profile${i}`}>
-        <img alt="" className="profileImg" src={profile.imageUrl}></img>
-        <h2 className="profileName">{profile.userName}</h2>
-        <h3 className="profileDetails">{profile.gmailAccount}</h3>
-        <h4 className="profileDetails">Prohabitions: {profile.prohibitions}</h4>
-      </div>
-    )
-  }
-
   edit() {
     this.setState({ editing: true })
   }
