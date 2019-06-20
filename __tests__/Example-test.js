@@ -1,8 +1,8 @@
+import React from 'react'
 import renderer from 'react-test-renderer'
 import Profile from '../src/components/Profile/Profile'
 
-describe('App', function(){
-  it('should something', () => {
-    expect(1).toBe(1);
-  });
+test('renders correctly', () => {
+    const tree = renderer.create(<Profile />).toJSON()
+    expect(tree).toMatchSnapshot()
 })

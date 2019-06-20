@@ -32,6 +32,7 @@
     "react-native-sectioned-multi-select": "^0.6.7",
     "react-native-select-multiple": "^2.0.0",
     "react-native-tabbar-bottom": "^1.0.4",
+    "react-native-unimodules": "^0.4.1",
     "react-native-webview": "^5.10.0",
     "yarn": "^1.16.0"
   },

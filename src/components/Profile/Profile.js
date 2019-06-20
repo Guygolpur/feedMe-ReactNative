@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Image, StyleSheet, Text, View, TextInput, ImageBackground, Button } from 'react-native'
-import { Icon } from 'react-native-elements'
+// import { Icon } from 'react-native-elements'
+import { Ionicons as Icon } from '@expo/vector-icons';
 
 import { Gmail } from '../Register/Register'
 
