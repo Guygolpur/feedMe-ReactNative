@@ -7,10 +7,10 @@ import Profile from '../src/components/Profile/Profile'
 // This code snippet should be moved to a generic place for test setup.
 // see Jest documentation of how to do that
 if (!global.fetch) {
-    global.fetch = require('node-fetch')
+  global.fetch = require('node-fetch')
 }
 
 test('renders correctly', () => {
-    const tree = renderer.create(<Profile />).toJSON()
-    expect(tree).toMatchSnapshot()
+  const tree = renderer.create(<Profile />).toJSON()
+  expect(tree).toMatchSnapshot()
 })

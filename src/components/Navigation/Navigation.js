@@ -31,8 +31,12 @@ export default class Navigation extends Component {
         {this.state.page === 'FavoriteScreen' && (
           <Favorites navigation={this.props.navigation} gmailAccount={this.props.gmailAccount} />
         )}
-        {this.state.page === 'SearchScreen' && <Search gmailAccount={this.props.gmailAccount} />}
-        {this.state.page === 'ProfileScreen' && <Profile gmailAccount={this.props.gmailAccount} />}
+        {this.state.page === 'SearchScreen' && (
+          <Search navigation={this.props.navigation} gmailAccount={this.props.gmailAccount} />
+        )}
+        {this.state.page === 'ProfileScreen' && (
+          <Profile navigation={this.props.navigation} gmailAccount={this.props.gmailAccount} />
+        )}
 
         <Tabbar
           stateFunc={tab => {
