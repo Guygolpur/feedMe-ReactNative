@@ -1,0 +1,13 @@
+import React from 'react'
+import renderer from 'react-test-renderer'
+import Navigation from '../src/components/Navigation/Navigation'
+
+if (!global.fetch) {
+  global.fetch = require('node-fetch')
+}
+describe('Navigation component tests', () => {
+  test('renders correctly', () => {
+    const tree = renderer.create(<Navigation />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})

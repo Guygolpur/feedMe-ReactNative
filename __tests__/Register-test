@@ -1,0 +1,13 @@
+import React from 'react'
+import renderer from 'react-test-renderer'
+import Register from '../src/components/Register/Register'
+
+if (!global.fetch) {
+  global.fetch = require('node-fetch')
+}
+describe('Favorites component tests', () => {
+  test('renders correctly', () => {
+    const tree = renderer.create(<Register />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
