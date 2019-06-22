@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export let Gmail = null
+// export let Gmail = null
 export default class Register extends Component {
   constructor(props) {
     super(props)
@@ -69,7 +69,8 @@ export default class Register extends Component {
           email: result.user.email
         },
         () => {
-          Gmail = this.state.email
+          // Gmail = this.state.email
+          this.props.changeGmailAccount(this.state.email)
           const url = `https://feedme24.herokuapp.com/addProfile`
           fetch(`${url}`, {
             method: 'POST',

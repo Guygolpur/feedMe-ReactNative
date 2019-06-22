@@ -15,7 +15,14 @@ export default class App extends React.Component {
     this.state = {
       gmailMode: false
     }
+    this.gmailAccount = null
+
     this.changeGmailMode = this.changeGmailMode.bind(this)
+    this.changeGmailAccount = this.changeGmailAccount.bind(this)
+
+  }
+  changeGmailAccount(gmailAccount){
+    this.gmailAccount = gmailAccount
   }
   changeGmailMode(){
     this.setState({gmailMode: !this.state.gmailMode})
@@ -23,11 +30,11 @@ export default class App extends React.Component {
   render() {
     if (this.state.gmailMode == false)
     return(
-      <Register changeGmailMode={this.changeGmailMode} />
+      <Register changeGmailAccount={this.changeGmailAccount} changeGmailMode={this.changeGmailMode} />
     )
     return (
       <View style={styles.container}>
-          <Navigation changeGmailMode={this.changeGmailMode} />
+          <Navigation gmailAccount={this.gmailAccount} changeGmailMode={this.changeGmailMode} />
       </View>
     );
   }

@@ -7,7 +7,7 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 // Use Redux state/props/shared file which store the data..
 // if I see this - your points go down
 // import { Gmail } from '../Register/Register'
-const Gmail = 'replace_me_with_shared_state_mechanism!'
+// const Gmail = 'replace_me_with_shared_state_mechanism!'
 
 const styles = StyleSheet.create({
   container: {
@@ -85,7 +85,7 @@ export default class Profile extends Component {
 
   getData() {
     this.setState({ profile: [] })
-    const url = `https://feedme24.herokuapp.com/getProfileByGmailAccount?gmailAccount=${Gmail}`
+    const url = `https://feedme24.herokuapp.com/getProfileByGmailAccount?gmailAccount=${this.props.gmailAccount}`
     fetch(`${url}`)
       .then(res => res.json())
       .then(data =>

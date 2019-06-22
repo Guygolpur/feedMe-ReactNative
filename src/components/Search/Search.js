@@ -15,7 +15,7 @@ import {
 // import { Picker } from 'react-native-picker-dropdown'
 import { Icon } from 'react-native-elements'
 import Instruction from '../Instruction/Instruction'
-import { Gmail } from '../Register/Register'
+// import { Gmail } from '../Register/Register'
 import { ingredientList } from './ingredientList'
 
 const styles = StyleSheet.create({
@@ -118,13 +118,13 @@ export default class Search extends Component {
   }
 
   async handleClick() {
-    if (!Gmail) {
-      return
-    }
+    // if (!Gmail) {
+    //   return
+    // }
     try {
       this.setState({ recipesList: [] })
       this.setState({ loading: true })
-      const url = `https://feedme24.herokuapp.com/recipes?gmailAccount=${Gmail}&ingredient1=${this.state.firstPick}&ingredient2=${this.state.secondPick}&ingredient3=${this.state.thirdPick}`
+      const url = `https://feedme24.herokuapp.com/recipes?gmailAccount=${this.props.gmailAccount}&ingredient1=${this.state.firstPick}&ingredient2=${this.state.secondPick}&ingredient3=${this.state.thirdPick}`
       const res = await fetch(`${url}`)
       const data = await res.json()
       data.map(item => this.addRecipe(item.strMeal, item.strMealThumb, item.idMeal))
@@ -156,7 +156,7 @@ export default class Search extends Component {
     const url = `https://feedme24.herokuapp.com/addFavorite`
     fetch(`${url}`, {
       method: 'POST',
-      body: `gmailAccount=${Gmail}&favName=${nameMealToAdd}`,
+      body: `gmailAccount=${this.props.gmailAccount}&favName=${nameMealToAdd}`,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }

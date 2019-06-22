@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { Icon } from 'react-native-elements'
 import Instruction from '../Instruction/Instruction'
-import { Gmail } from '../Register/Register'
+// import { Gmail } from '../Register/Register'
 
 const styles = StyleSheet.create({
   container: {
@@ -89,10 +89,10 @@ export default class Favorites extends Component {
     )
   }
   async getData() {
-    if (!Gmail) {
-      return
-    }
-    const url = `https://feedme24.herokuapp.com/profileFavorite?gmailAccount=${Gmail}`
+    // if (!Gmail) {
+    //   return
+    // }
+    const url = `https://feedme24.herokuapp.com/profileFavorite?gmailAccount=${this.props.gmailAccount}`
     try {
       const res = await fetch(`${url}`)
       const data = await res.json()
@@ -105,13 +105,13 @@ export default class Favorites extends Component {
     }
   }
   onDelete(nameMealToDelete) {
-    if (!Gmail) {
-      return
-    }
+    // if (!Gmail) {
+    //   return
+    // }
     const url = `https://feedme24.herokuapp.com/removeFavorite`
     fetch(`${url}`, {
       method: 'POST',
-      body: `gmailAccount=${Gmail}&favName=${nameMealToDelete}`,
+      body: `gmailAccount=${this.props.gmailAccount}&favName=${nameMealToDelete}`,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }

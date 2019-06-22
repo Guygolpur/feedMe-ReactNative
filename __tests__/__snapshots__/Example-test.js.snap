@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/components/photos/searchPhoto.jpeg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": "100%",
+            "width": "100%",
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      style={
+        Object {
+          "backgroundColor": "black",
+          "color": "white",
+          "fontSize": 35,
+          "fontWeight": "bold",
+          "height": 80,
+          "paddingTop": 17,
+          "textAlign": "center",
+        }
+      }
+    >
+      Profile
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginTop": 40,
+          "textAlign": "center",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": undefined,
+          }
+        }
+        style={
+          Object {
+            "height": 200,
+            "width": 200,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 35,
+            "fontWeight": "bold",
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "red",
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Prohabitions: 
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessibilityStates={Array []}
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "padding": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            edit
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
