@@ -3,7 +3,11 @@ import { Image, StyleSheet, Text, View, TextInput, ImageBackground, Button } fro
 // import { Icon } from 'react-native-elements'
 import { Ionicons as Icon } from '@expo/vector-icons';
 
-import { Gmail } from '../Register/Register'
+// I'm commenting this since it is not valid way to pass around information
+// Use Redux state/props/shared file which store the data..
+// if I see this - your points go down
+// import { Gmail } from '../Register/Register'
+const Gmail = 'replace_me_with_shared_state_mechanism!'
 
 const styles = StyleSheet.create({
   container: {

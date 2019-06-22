@@ -50,13 +50,13 @@
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-native": "^3.7.0",
     "jest": "^24.8.0",
-    "jest-expo": "^33.0.2",
+    "node-fetch": "^2.6.0",
     "prettier": "^1.18.2",
     "react-native-testing-library": "^1.8.0",
     "react-test-renderer": "^16.8.6"
   },
   "private": true,
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   }
 }
