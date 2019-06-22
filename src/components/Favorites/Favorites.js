@@ -8,6 +8,7 @@ import {
   ImageBackground,
   ActivityIndicator
 } from 'react-native'
+import PropTypes from 'prop-types'
 import { Icon } from 'react-native-elements'
 import Instruction from '../Instruction/Instruction'
 // import { Gmail } from '../Register/Register'
@@ -89,9 +90,6 @@ export default class Favorites extends Component {
     )
   }
   async getData() {
-    // if (!Gmail) {
-    //   return
-    // }
     const url = `https://feedme24.herokuapp.com/profileFavorite?gmailAccount=${this.props.gmailAccount}`
     try {
       const res = await fetch(`${url}`)
@@ -105,9 +103,6 @@ export default class Favorites extends Component {
     }
   }
   onDelete(nameMealToDelete) {
-    // if (!Gmail) {
-    //   return
-    // }
     const url = `https://feedme24.herokuapp.com/removeFavorite`
     fetch(`${url}`, {
       method: 'POST',
@@ -188,4 +183,8 @@ export default class Favorites extends Component {
       />
     )
   }
+}
+
+Favorites.propTypes = {
+  gmailAccount: PropTypes.string
 }

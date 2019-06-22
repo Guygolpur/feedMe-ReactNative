@@ -28,9 +28,11 @@ export default class Navigation extends Component {
           // {this.state.page === "HomeScreen" && <MyComp navigation={this.props.navigation}>Screen1</MyComp>}
         }
         {this.state.page === 'Log Out' && this.props.changeGmailMode()}
-        {this.state.page === 'FavoriteScreen' && <Favorites gmailAccount={this.props.gmailAccount}/>}
-        {this.state.page === 'SearchScreen' && <Search gmailAccount={this.props.gmailAccount}/>}
-        {this.state.page === 'ProfileScreen' && <Profile gmailAccount={this.props.gmailAccount}/>}
+        {this.state.page === 'FavoriteScreen' && (
+          <Favorites navigation={this.props.navigation} gmailAccount={this.props.gmailAccount} />
+        )}
+        {this.state.page === 'SearchScreen' && <Search gmailAccount={this.props.gmailAccount} />}
+        {this.state.page === 'ProfileScreen' && <Profile gmailAccount={this.props.gmailAccount} />}
 
         <Tabbar
           stateFunc={tab => {
@@ -67,5 +69,7 @@ export default class Navigation extends Component {
   }
 }
 Navigation.propTypes = {
-  changeGmailMode: propTypes.func
+  gmailAccount: propTypes.string,
+  changeGmailMode: propTypes.func,
+  navigation: propTypes.string
 }

@@ -69,7 +69,6 @@ export default class Register extends Component {
           email: result.user.email
         },
         () => {
-          // Gmail = this.state.email
           this.props.changeGmailAccount(this.state.email)
           const url = `https://feedme24.herokuapp.com/addProfile`
           fetch(`${url}`, {
@@ -105,5 +104,6 @@ export default class Register extends Component {
 }
 
 Register.propTypes = {
-  changeGmailMode: propTypes.func
+  changeGmailMode: propTypes.func,
+  changeGmailAccount: propTypes.func
 }

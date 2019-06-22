@@ -12,11 +12,11 @@ import {
   ActivityIndicator,
   Picker
 } from 'react-native'
+import propTypes from 'prop-types'
 // import { Picker } from 'react-native-picker-dropdown'
 import { Icon } from 'react-native-elements'
 import Instruction from '../Instruction/Instruction'
-// import { Gmail } from '../Register/Register'
-import { ingredientList } from './ingredientList'
+import ingredientList from './ingredientList'
 
 const styles = StyleSheet.create({
   container: {
@@ -118,9 +118,6 @@ export default class Search extends Component {
   }
 
   async handleClick() {
-    // if (!Gmail) {
-    //   return
-    // }
     try {
       this.setState({ recipesList: [] })
       this.setState({ loading: true })
@@ -250,4 +247,7 @@ export default class Search extends Component {
       />
     )
   }
+}
+Search.propTypes = {
+  gmailAccount: propTypes.string
 }
