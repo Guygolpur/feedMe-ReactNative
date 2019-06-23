@@ -9,7 +9,8 @@ import {
   ActivityIndicator
 } from 'react-native'
 import PropTypes from 'prop-types'
-import { Icon } from 'react-native-elements'
+// import { Icon } from 'react-native-elements'
+import { Ionicons as Icon } from '@expo/vector-icons'
 import Instruction from '../Instruction/Instruction'
 // import { Gmail } from '../Register/Register'
 
@@ -163,7 +164,7 @@ export default class Favorites extends Component {
                   <TouchableOpacity onPress={() => this.openInstruction(item)}>
                     <ImageBackground style={styles.image} source={{ uri: item.image }} />
                   </TouchableOpacity>
-                  <Icon onPress={() => this.onDelete(item.name)} name="delete" size={50} />
+                  <Icon onPress={() => this.onDelete(item.name)} name="md-trash" size={50} />
                 </View>
               )
             }}

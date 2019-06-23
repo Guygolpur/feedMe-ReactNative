@@ -14,7 +14,8 @@ import {
 } from 'react-native'
 import propTypes from 'prop-types'
 // import { Picker } from 'react-native-picker-dropdown'
-import { Icon } from 'react-native-elements'
+// import { Icon } from 'react-native-elements'
+import { Ionicons as Icon } from '@expo/vector-icons'
 import Instruction from '../Instruction/Instruction'
 import ingredientList from './ingredientList'
 
@@ -73,15 +74,20 @@ const styles = StyleSheet.create({
   },
   resultContainer: {
     marginTop: 0,
-    height: 240
+    height: 240,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   recipeName: {
     fontSize: 12,
     width: 150,
     height: 30,
     textAlign: 'center',
-    fontWeight: 'bold',
-    marginLeft: 15
+    fontWeight: 'bold'
+  },
+  like: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   image: {
     width: 120,
@@ -227,7 +233,7 @@ export default class Search extends Component {
                 return (
                   <View style={styles.resultContainer}>
                     <Text style={styles.recipeName}>{item.name}</Text>
-                    <Icon onPress={() => this.onAddToFav(item.name)} name="favorite" size={40} />
+                    <Icon onPress={() => this.onAddToFav(item.name)} name="md-heart" size={40} style={styles.like}/>
                     <TouchableOpacity onPress={() => this.openInstruction(item)}>
                       <ImageBackground source={{ uri: item.strMealThumb }} style={styles.image} />
                     </TouchableOpacity>

@@ -194,7 +194,7 @@ export default class Profile extends Component {
             <Text style={styles.profileProhibition}>
               Prohabitions: {this.state.profile.prohibitions}
             </Text>
-            <Icon onPress={() => this.edit()} name="edit" size={40}></Icon>
+            <Icon onPress={() => this.edit()} name="md-settings" size={40}></Icon>
           </View>
         </ImageBackground>
       </View>
