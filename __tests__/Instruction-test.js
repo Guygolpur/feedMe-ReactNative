@@ -16,7 +16,7 @@ describe('Instruction component tests', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
-  test('render correctly', async () => {
+  test('check toHaveProperty props', async () => {
     const mockFunck = await jest.fn()
     const testRenderer = await renderer.create(
       <Instruction backToRecipeList={mockFunck} recipe={{ name: 'Budino Di Ricotta' }} />
@@ -24,7 +24,7 @@ describe('Instruction component tests', () => {
     expect(testRenderer.root.props).toHaveProperty('backToRecipeList')
     expect(testRenderer.root.props).toHaveProperty('recipe')
   })
-  test('check edit function', async () => {
+  test('check addInstruction function', async () => {
     const mockFunck = await jest.fn()
     const wrapper = shallow(
       <Instruction backToRecipeList={mockFunck} recipe={{ name: 'Budino Di Ricotta' }} />
@@ -57,7 +57,7 @@ describe('Instruction component tests', () => {
       strYoutube: 'strYoutube'
     })
   })
-  test('should call openURL if url is provided', async () => {
+  test('check calling backToRecipeList', async () => {
     const mockFunck = await jest.fn()
     const wrapper = await shallow(
       <Instruction backToRecipeList={mockFunck} recipe={{ name: 'Budino Di Ricotta' }} />

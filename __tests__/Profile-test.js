@@ -13,18 +13,20 @@ describe('Profile tests component', () => {
     const testRenderer = renderer.create(<Profile gmailAccount={'barazouri@gmail.com'} />).toJSON()
     expect(testRenderer).toMatchSnapshot()
   })
-  test('render correctly', () => {
+  test('check props exist', () => {
     const testRenderer = renderer.create(<Profile gmailAccount={'barazouri@gmail.com'} />)
     expect(testRenderer.root.props).toHaveProperty('gmailAccount')
   })
-  test('check edit function', () => {
+  test('check edit function and handle save', () => {
     const wrapper = shallow(<Profile gmailAccount={'barazouri24@gmail.com'} />)
     const componentInstance = wrapper.instance()
     expect(wrapper.state('editing')).toBe(false)
     componentInstance.edit()
     expect(wrapper.state('editing')).toBe(true)
+    componentInstance.handleSave()
+    expect(wrapper.state('editing')).toBe(false)
   })
-  test('check handleImage function', async () => {
+  test('check add function', async () => {
     const wrapper = await shallow(<Profile gmailAccount={'barazouri24@gmail.com'} />)
     const componentInstance = wrapper.instance()
     expect(wrapper.state('profile')).toStrictEqual([])
@@ -36,5 +38,19 @@ describe('Profile tests component', () => {
       imageUrl: 'imageUrl',
       userName: 'userName'
     })
+  })
+  test('check handleProhabition function and handle save', async () => {
+    const wrapper = shallow(<Profile gmailAccount={'barazouri24@gmail.com'} />)
+    const componentInstance = wrapper.instance()
+    await componentInstance.handleProhabition('tuna')
+    expect(componentInstance.prohibitions).toBe('tuna')
+  })
+  test('check handleUserName and handleImageUrl function and handle save', async () => {
+    const wrapper = shallow(<Profile gmailAccount={'barazouri24@gmail.com'} />)
+    const componentInstance = wrapper.instance()
+    await componentInstance.handleUserName('bar')
+    expect(componentInstance.userName).toBe('bar')
+    await componentInstance.handleImageUrl('handleImageUrl')
+    expect(componentInstance.imageUrl).toBe('handleImageUrl')
   })
 })

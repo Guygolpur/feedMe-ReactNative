@@ -12,7 +12,7 @@ jest.mock('expo', () => ({
   }
 }))
 
-describe('Favorites component tests', () => {
+describe('Register component tests', () => {
   test('renders correctly', async () => {
     const mockFunck = jest.fn()
     const tree = await renderer

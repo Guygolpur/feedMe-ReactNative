@@ -44,7 +44,7 @@ describe('Search component tests', () => {
     const wrapper = shallow(<Search gmailAccount={'barazouri24@gmail.com'} />)
     const componentInstance = wrapper.instance()
     expect(wrapper.state('openInstructionMode')).toBe(false)
-    componentInstance.openInstruction()
+    componentInstance.changeOpenInstructionMode()
     expect(wrapper.state('openInstructionMode')).toBe(true)
   })
 })

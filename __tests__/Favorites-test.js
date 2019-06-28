@@ -15,7 +15,7 @@ describe('Favorites component tests', () => {
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
-  test('render correctly', async () => {
+  test('check toHaveProperty props', async () => {
     const testRenderer = await renderer.create(<Favorites gmailAccount={'barazouri24@gmail.com'} />)
     expect(testRenderer.root.props).toHaveProperty('gmailAccount')
   })
