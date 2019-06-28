@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Profile tests component match snapshot 1`] = `
 <View>
   <View
     accessibilityIgnoresInvertColors={true}
@@ -133,7 +133,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            edit
+            md-settings
           </Text>
         </View>
       </View>

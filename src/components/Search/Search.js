@@ -233,7 +233,12 @@ export default class Search extends Component {
                 return (
                   <View style={styles.resultContainer}>
                     <Text style={styles.recipeName}>{item.name}</Text>
-                    <Icon onPress={() => this.onAddToFav(item.name)} name="md-heart" size={40} style={styles.like}/>
+                    <Icon
+                      onPress={() => this.onAddToFav(item.name)}
+                      name="md-heart"
+                      size={40}
+                      style={styles.like}
+                    />
                     <TouchableOpacity onPress={() => this.openInstruction(item)}>
                       <ImageBackground source={{ uri: item.strMealThumb }} style={styles.image} />
                     </TouchableOpacity>

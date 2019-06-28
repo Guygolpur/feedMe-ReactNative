@@ -1,13 +1,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Register from '../src/components/Register/Register'
-
+import Navigation from '../src/components/Navigation/Navigation'
 if (!global.fetch) {
   global.fetch = require('node-fetch')
 }
-describe('Favorites component tests', () => {
+describe('Navigation component tests', () => {
   test('renders correctly', () => {
-    const tree = renderer.create(<Register />).toJSON()
+    const tree = renderer.create(<Navigation />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

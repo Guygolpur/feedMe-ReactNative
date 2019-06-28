@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites component tests renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "backgroundColor": "black",
+        "color": "white",
+        "fontSize": 35,
+        "fontWeight": "bold",
+        "height": 80,
+        "paddingTop": 17,
+        "textAlign": "center",
+      }
+    }
+  >
+    Favorites
+  </Text>
+  <View
+    style={
+      Object {
+        "marginTop": 200,
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#0000ff"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;

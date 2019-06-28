@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
 // import { WebView } from 'react-native-webview'
-import { Icon } from 'react-native-elements'
+// import { Icon } from 'react-native-elements'
+import { Ionicons as Icon } from '@expo/vector-icons'
+
 import propTypes from 'prop-types'
 
 const styles = StyleSheet.create({
@@ -66,9 +68,13 @@ export default class Instruction extends Component {
     }
     this.getInstructionData = this.getInstructionData.bind(this)
     this.addInstruction = this.addInstruction.bind(this)
+    this.handleBackArrow = this.handleBackArrow.bind(this)
   }
   componentDidMount() {
     this.getInstructionData(this.props.recipe.name)
+  }
+  handleBackArrow() {
+    this.props.backToRecipeList()
   }
   getInstructionData(MealName) {
     const url = `https://feedme24.herokuapp.com/getInstruction/${MealName}`
@@ -114,7 +120,7 @@ export default class Instruction extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-          <TouchableOpacity onPress={() => this.props.backToRecipeList()}>
+          <TouchableOpacity onPress={this.handleBackArrow}>
             <Icon style={styles.backArrow} name="arrow-back" size={50} color={'white'} />
           </TouchableOpacity>
           <Text style={styles.title}>Instruction</Text>
