@@ -8,6 +8,27 @@
     "lint": "eslint --cache --format codeframe --ext .js .",
     "test": "jest"
   },
+  "checkSubmission": {
+    "ex": "finalProject",
+    "students": [
+      {
+        "id": "308353523",
+        "fullName": "Guy Golpur",
+        "email": "guygolpur@gmail.com"
+      },
+      {
+        "id": "205785124",
+        "fullName": "Bar Azouri",
+        "email": "barazouri24@gmail.com"
+      }
+    ],
+    "os": "Windows",
+    "device": "Android",
+    "deliveryDate": "06/30/2019",
+    "delay": false,
+    "delayReason": "",
+    "comments": ""
+  },
   "dependencies": {
     "@expo/vector-icons": "^10.0.2",
     "@expo/videoplayer": "^0.4.0",
