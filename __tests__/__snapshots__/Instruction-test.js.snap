@@ -71,7 +71,7 @@ exports[`Instruction component tests renders correctly 1`] = `
               ]
             }
           >
-            arrow-back
+            md-arrow-back
           </Text>
         </View>
       </View>

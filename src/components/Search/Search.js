@@ -13,8 +13,6 @@ import {
   Picker
 } from 'react-native'
 import propTypes from 'prop-types'
-// import { Picker } from 'react-native-picker-dropdown'
-// import { Icon } from 'react-native-elements'
 import { Ionicons as Icon } from '@expo/vector-icons'
 import Instruction from '../Instruction/Instruction'
 import ingredientList from './ingredientList'
@@ -233,12 +231,13 @@ export default class Search extends Component {
                 return (
                   <View style={styles.resultContainer}>
                     <Text style={styles.recipeName}>{item.name}</Text>
-                    <Icon
-                      onPress={() => this.onAddToFav(item.name)}
-                      name="md-heart"
-                      size={40}
-                      style={styles.like}
-                    />
+                    <TouchableOpacity onPress={() => this.onAddToFav(item.name)}>
+                      <Icon
+                        name="md-heart"
+                        size={40}
+                        style={styles.like}
+                      />
+                    </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.openInstruction(item)}>
                       <ImageBackground source={{ uri: item.strMealThumb }} style={styles.image} />
                     </TouchableOpacity>

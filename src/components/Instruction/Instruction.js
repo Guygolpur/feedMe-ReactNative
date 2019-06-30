@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, ImageBackground } from 'react-native'
-// import { WebView } from 'react-native-webview'
-// import { Icon } from 'react-native-elements'
 import { Ionicons as Icon } from '@expo/vector-icons'
 
 import propTypes from 'prop-types'
@@ -25,10 +23,6 @@ const styles = StyleSheet.create({
     height: 300,
     width: 300,
     paddingTop: 30
-  },
-  backArrow: {
-    paddingLeft: 30,
-    left: 30
   },
   title: {
     fontSize: 35,
@@ -121,7 +115,7 @@ export default class Instruction extends Component {
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <TouchableOpacity onPress={this.handleBackArrow}>
-            <Icon style={styles.backArrow} name="arrow-back" size={50} color={'white'} />
+            <Icon name="md-arrow-back" size={50} color={'white'} />
           </TouchableOpacity>
           <Text style={styles.title}>Instruction</Text>
         </View>

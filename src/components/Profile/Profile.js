@@ -51,7 +51,7 @@ export default class Profile extends Component {
         id: this.nextID(),
         gmailAccount: '',
         prohibitions: '',
-        imageUrl: '',
+        imageUrl: null,
         userName: ''
       },
       editing: false
