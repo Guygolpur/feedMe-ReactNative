@@ -55,7 +55,7 @@
     "react-native-tabbar-bottom": "^1.0.4",
     "react-native-unimodules": "^0.4.1",
     "react-native-webview": "^5.10.0",
-    "yarn": "^1.16.0"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
