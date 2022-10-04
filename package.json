@@ -33,7 +33,7 @@
     "@expo/vector-icons": "^10.0.2",
     "@expo/videoplayer": "^0.4.0",
     "@unimodules/react-native-adapter": "^2.0.1",
-    "expo": "^32.0.0",
+    "expo": "^46.0.14",
     "native-base": "^2.12.1",
     "prop-types": "^15.7.2",
     "react": "16.5.0",
